@@ -20,7 +20,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const userRoutes = require("./routes/user");
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewsRoutes = require("./routes/reviews");
-// const MongoDBStore = require('connect-mongo')(session); this is the old package version newer one in down written
+// const MongoDBStore = require('connect-mongo')(session);
 const MongoDBStore = require('connect-mongo');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
@@ -152,12 +152,6 @@ app.use((req, res, next) => {  //flash middleware
     res.locals.error = req.flash("error");
     next();
 });
-
-// app.get("/fakeUser", async (req, res) => {
-//     const user = new User({email: "tushar@gmail.com", username: "Tushar" });
-//     const  newUser =  await User.register(user, "chicken"); // "chicken" is pasword here // register does all the wrok here check passport for more info
-//     res.send(newUser);
-// });
 
 // get / register - show Form
 // post / register - create a Form
