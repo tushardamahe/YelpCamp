@@ -24,8 +24,7 @@ const reviewsRoutes = require("./routes/reviews");
 const MongoDBStore = require('connect-mongo');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
-
- mongoose.connect(dbUrl, {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -58,7 +57,6 @@ app.use(mongoSanitize({
 // });
 
 const secret = process.env.SECRET || "thisisnotbettersecret";
-
 const store = MongoDBStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
@@ -174,7 +172,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error", { err });
 });
 
-
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
     console.log('Serving on port 3000')
 });
