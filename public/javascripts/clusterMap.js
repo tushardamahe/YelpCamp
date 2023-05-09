@@ -2,7 +2,7 @@ mapboxgl.accessToken = mapToken;
     const map = new mapboxgl.Map({ // how to create map nothing to do with clusters and adding information
     container: 'cluster-map',
     style: 'mapbox://styles/mapbox/light-v10',
-    center: [-103.5917, 40.6699],
+    center: [78.8791249, 20.5289244],
     zoom: 3
 });
  
